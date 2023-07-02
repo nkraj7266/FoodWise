@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import FoodForm from "./components/FoodForm";
+import FoodInfo from "./components/FoodInfo";
+import axios from "axios";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [foodData, setFoodData] = useState("");
+
+	const handleFoodSubmit = async (foodName) => {
+		const apiKey = "/HyUktpUUh60meWNxQO/NA==9L9PAMbWfHnpRJ28";
+		try {
+			const response = await axios.get(
+				`https://api.api-ninjas.com/v1/nutrition?query=${foodName}`,
+				{
+					headers: {
+						"X-Api-Key": apiKey,
+					},
+				}
+			);
+			const foodData = response.data;
+			setFoodData(foodData);
+		} catch (error) {
+			console.error("Failed to fetch nutritional information:", error);
+		}
+	};
+	return (
+		<div className="App">
+			<FoodForm onSubmit={handleFoodSubmit} />
+			{foodData && <FoodInfo foodData={foodData} />}
+		</div>
+	);
 }
 
 export default App;
