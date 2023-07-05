@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./FoodForm.css";
 
 const FoodForm = ({ onSubmit }) => {
 	const [foodName, setFoodName] = useState("");
@@ -13,12 +14,13 @@ const FoodForm = ({ onSubmit }) => {
 	};
 
 	return (
-		<div>
-			<h1>Your Food Dost</h1>
-			<form onSubmit={handleSubmit}>
+		<div className="form-wrap">
+			<h1>FoodWise</h1>
+			<p>Because Once a Wise Men Said....</p>
+			<form className="search-form" onSubmit={handleSubmit}>
 				<input
 					type="text"
-					placeholder="Enter Food Name"
+					placeholder="Enter Food Name.."
 					value={foodName}
 					onChange={handleChange}
 				/>

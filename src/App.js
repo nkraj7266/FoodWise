@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FoodForm from "./components/FoodForm";
 import FoodInfo from "./components/FoodInfo";
 import axios from "axios";
@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
 	const [foodData, setFoodData] = useState("");
 
-	const handleFoodSubmit = async (foodName) => {
+	const fetchFoodData = async (foodName) => {
 		const apiKey = "/HyUktpUUh60meWNxQO/NA==9L9PAMbWfHnpRJ28";
 		try {
 			const response = await axios.get(
@@ -24,6 +24,15 @@ function App() {
 			console.error("Failed to fetch nutritional information:", error);
 		}
 	};
+
+	useEffect(() => {
+		fetchFoodData("water");
+	}, []);
+
+	const handleFoodSubmit = (foodName) => {
+		fetchFoodData(foodName);
+	};
+
 	return (
 		<div className="App">
 			<FoodForm onSubmit={handleFoodSubmit} />
