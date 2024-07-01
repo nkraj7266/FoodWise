@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Food Wise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Food Wise** is a user-friendly nutrition information app designed to help you make informed dietary choices. By entering the name of any food item, the app provides detailed information about calorie count, macro-nutritional content, and suggests exercises to burn off those calories. It also includes a bar chart to visualize macro-nutrient data.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+-   [Features](#features)
+-   [Technologies Used](#technologies-used)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [API References](#api-references)
+-   [Contributing](#contributing)
+-   [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   **Calorie Information**: Get the calorie count for any food item.
+-   **Macro-Nutritional Data**: Obtain detailed information on proteins, carbohydrates, and fats.
+-   **Exercise Suggestions**: Discover exercises and the time required to burn the calories from your food intake.
+-   **Data Visualization**: View macro-nutrient data in an easy-to-understand bar graph format.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+-   **React.js**: Frontend framework.
+-   **Chart.js**: Library for data visualization.
+-   **Axios**: HTTP client for API requests.
+-   **Nutrition APIs**:
+    -   [Ninja API](https://api-ninjas.com)
+    -   [Rapid API](https://rapidapi.com)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+Follow these steps to set up the project locally:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    git clone https://github.com/yourusername/food-wise.git
+    cd food-wise
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install the dependencies:
 
-### `npm run eject`
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open your browser and navigate to `http://localhost:3000` to view the app.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+-   **Search for Food**: Enter the name of a food item in the search bar.
+-   **View Nutrition Info**: Check the displayed calorie count and macro-nutrient information.
+-   **Exercise Suggestions**: Review the recommended exercises and the time required to burn the calories.
+-   **Visualize Data**: Observe the bar graph representing the macro-nutritional data.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API References
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Food Wise** utilizes the following APIs for nutrition information:
 
-### Code Splitting
+-   **Ninja API**: Used for retrieving food item details and nutritional information.
+-   **Rapid API**: Provides additional nutritional data and exercise suggestions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For more information, refer to the respective documentation:
 
-### Analyzing the Bundle Size
+-   [Ninja API Documentation](https://api-ninjas.com/api/nutrition)
+-   [Rapid API Documentation](https://rapidapi.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing
 
-### Making a Progressive Web App
+Contributions are welcome! Follow these steps to contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Fork the repository.
+2. Create a new branch:
+    ```bash
+    git checkout -b feature-name
+    ```
+3. Make your changes and commit them:
+    ```bash
+    git commit -m 'Add some feature'
+    ```
+4. Push to the branch:
+    ```bash
+    git push origin feature-name
+    ```
+5. Open a pull request.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Food Wise** is developed and maintained by [Nitin Rajvanshi](https://github.com/nkraj7266). For any queries or suggestions, feel free to contact me.

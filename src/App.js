@@ -5,21 +5,34 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-	const [foodData, setFoodData] = useState("");
+	const [foodData1, setFoodData1] = useState("");
+	const [foodData2, setFoodData2] = useState("");
 
 	const fetchFoodData = async (foodName) => {
-		const apiKey = "/HyUktpUUh60meWNxQO/NA==9L9PAMbWfHnpRJ28";
+		const apiKey1 = process.env.REACT_APP_API_NINJAS_KEY;
+		const apiKey2 = process.env.REACT_APP_RAPID_API_KEY;
 		try {
-			const response = await axios.get(
+			const res1 = await axios.get(
 				`https://api.api-ninjas.com/v1/nutrition?query=${foodName}`,
 				{
 					headers: {
-						"X-Api-Key": apiKey,
+						"X-Api-Key": apiKey1,
 					},
 				}
 			);
-			const foodData = response.data;
-			setFoodData(foodData);
+			const res2 = await axios.get(
+				`https://dietagram.p.rapidapi.com/apiFood.php?name=${foodName}&lang=en`,
+				{
+					headers: {
+						"x-rapidapi-key": apiKey2,
+						"x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
+					},
+				}
+			);
+			const foodData1 = res1.data;
+			const foodData2 = res2.data;
+			setFoodData1(foodData1);
+			setFoodData2(foodData2);
 		} catch (error) {
 			console.error("Failed to fetch nutritional information:", error);
 		}
@@ -36,7 +49,9 @@ function App() {
 	return (
 		<div className="App">
 			<FoodForm onSubmit={handleFoodSubmit} />
-			{foodData && <FoodInfo foodData={foodData} />}
+			{foodData1 && (
+				<FoodInfo foodData1={foodData1} foodData2={foodData2} />
+			)}
 		</div>
 	);
 }

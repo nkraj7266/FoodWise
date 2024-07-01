@@ -6,12 +6,12 @@ import Dumbbell from "../assets/dumbbell.png";
 import Running from "../assets/training.png";
 import BarChart from "./BarChart";
 
-const FoodInfo = ({ foodData }) => {
-	if (!foodData) {
+const FoodInfo = ({ foodData1, foodData2 }) => {
+	if (!foodData1) {
 		return <div>Loading...</div>;
 	}
 
-	if (!foodData || foodData.length === 0) {
+	if (!foodData1 || foodData1.length === 0) {
 		return (
 			<div style={{ color: "green" }}>
 				Please double-check your input! 🌼
@@ -20,26 +20,26 @@ const FoodInfo = ({ foodData }) => {
 	}
 
 	const {
-		name,
-		calories,
-		serving_size_g,
 		fat_total_g,
 		fat_saturated_g,
-		protein_g,
 		sodium_mg,
 		potassium_mg,
 		cholesterol_mg,
 		carbohydrates_total_g,
 		fiber_g,
 		sugar_g,
-	} = foodData[0];
+	} = foodData1[0];
 
-	const isHighCalories = calories > 220;
+	const serving_size_g = 100;
+
+	const { name, protein, caloric } = foodData2.dishes[0];
+
+	const isHighCalories = caloric > 220;
 
 	const chartArr = [
 		fat_total_g,
 		fat_saturated_g,
-		protein_g,
+		protein,
 		sodium_mg / 1000,
 		potassium_mg / 1000,
 		cholesterol_mg / 1000,
@@ -52,7 +52,7 @@ const FoodInfo = ({ foodData }) => {
 		<div className="container">
 			<h3>
 				{serving_size_g}g {name.charAt(0).toUpperCase() + name.slice(1)}{" "}
-				Contains a Total of {calories} Calories.
+				Contains a Total of {caloric} Calories.
 			</h3>
 			{isHighCalories && (
 				<p className="warning">
@@ -87,7 +87,7 @@ const FoodInfo = ({ foodData }) => {
 						<li>
 							<p className="name">Protein:</p>{" "}
 							<p className="data">
-								{protein_g}
+								{protein}
 								<span>g</span>
 							</p>
 						</li>
@@ -140,32 +140,32 @@ const FoodInfo = ({ foodData }) => {
 						<img src={Running} alt="Icon" />
 						<p>
 							Be Fit & Healthy by a minimum of{" "}
-							<b>{Math.ceil(calories * 0.085714)}</b> Minutes of
-							Running to burn <b>{calories}</b> Calories!
+							<b>{Math.ceil(caloric * 0.085714)}</b> Minutes of
+							Running to burn <b>{caloric}</b> Calories!
 						</p>
 					</div>
 					<div className="exercise">
 						<img src={Cycling} alt="Icon" />
 						<p>
 							Feel the Joy as you Cycle for just{" "}
-							<b>{Math.ceil(calories * 0.125)}</b> Minutes to burn{" "}
-							<b>{calories}</b> Calories!
+							<b>{Math.ceil(caloric * 0.125)}</b> Minutes to burn{" "}
+							<b>{caloric}</b> Calories!
 						</p>
 					</div>
 					<div className="exercise">
 						<img src={Dumbbell} alt="Icon" />
 						<p>
-							To Torch those <b>{calories}</b> Calories, hit the
+							To Torch those <b>{caloric}</b> Calories, hit the
 							Gym for at least{" "}
-							<b>{Math.ceil(calories * 0.2381)}</b> Minutes
+							<b>{Math.ceil(caloric * 0.2381)}</b> Minutes
 						</p>
 					</div>
 					<div className="exercise">
 						<img src={JumpRope} alt="Icon" />
 						<p>
 							To skip to a Healthier you, Grab Skipping Rope and
-							Skip for <b>{Math.ceil(calories * 0.08)}</b> Minutes
-							to burn <b>{calories}</b> Calories!
+							Skip for <b>{Math.ceil(caloric * 0.08)}</b> Minutes
+							to burn <b>{caloric}</b> Calories!
 						</p>
 					</div>
 				</div>
